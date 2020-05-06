@@ -400,6 +400,11 @@ THREE.TrackballControls = function ( object, domElement ) {
 
 	// listeners
 
+  	function onCustomEvent( event ) {
+	  console.warn( 'onCustomEvent called.' )
+	  dollyIn( getZoomScale() )
+	}
+
 	function keydown( event ) {
 
 		if ( _this.enabled === false ) return;
@@ -684,6 +689,7 @@ THREE.TrackballControls = function ( object, domElement ) {
 
 	window.addEventListener( 'keydown', keydown, false );
 	window.addEventListener( 'keyup', keyup, false );
+  	window.addEventListener( ' customEvent', onCustomEvent, false);
 
 	this.handleResize();
 
